@@ -1,0 +1,14 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue May 02 16:45:48 2017
+
+@author: Stefano
+"""
+
+from Bio import Seq
+from Bio.Alphabet import IUPAC
+with open('rosalind_prot.txt','r') as inp:
+    with open('output_prot.txt','w') as out:
+        myseq=Seq.Seq(inp.read().rstrip(),IUPAC.unambiguous_rna)
+        myprot=myseq.translate()
+        out.write(str(myprot[:-1]))
